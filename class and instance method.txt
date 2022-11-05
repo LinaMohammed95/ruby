@@ -1,0 +1,104 @@
+in Model of my_app
+we have many classes that generated for Users 
+such as Informations, Education_histories, and Specializations
+each class having thier data 
+for Users it's include name, username, and email
+for Informations it's include user_id, address, and phone
+for Education_histories it's include user_id, university, and stage
+lastly, for Specializations it's include user_id, major, and degree
+-------------------------------------------------------------------
+after generation validated and associated the data in the classes 
+Users,Informations, Education_histories, and Specializations
+-------------------------------------------------------------------
+examples :
+first User
+name: Lina, username:Lina95, email:Lina@gmail.com, address:Baghdad, phone:0747896, 
+university:Mustansiriyah University, stage:one, major:Engineering, degree:verygood 
+second User
+name: Mina, username:Mina94, email:Mina@gmail.com, address:Erbil, phone:0782805, 
+university:Erbil University, stage:third, major:Medicine, degree:good 
+third User
+name: Dania, username:Dania90, email:Dania@gmail.com, address:Anbar, phone:0794326, 
+university:Anbar University, stage:forth, major:Science, degree:verygood 
+-------------------------------------------------------------------
+in my_app :
+(name, username, email, address, phone, university, stage, major, and degree ) 
+all of these between the brackets above are attributes
+-------------------------------------------------------------------
+define class method 
+
+for class method 
+1- choose the class that we have to add class method  
+in Model> Class_name.rb such as User.rb or Information.rb or any other class_name 
+2- typing 
+def self.method_name
+    attribute or/and any other function
+end
+note : self this is mean for the self class we choose the method 
+wil works for all objects or attributes in the same class
+
+when call up in Terminal:
+Class_name.method_name
+
+example:
+for Information class
+def self.location
+    address
+end
+call up 
+Information.location
+---------------------------------------------------------------------
+define instance method
+
+for instance method
+1- choose the class that we have to add instance method 
+in Model> Class_name.rb such as User.rb or Information.rb or any other class_name 
+2- typing 
+def method_name
+    attribute or/and any other function
+end
+note: when remove self from the definiation, that's mean it's instanse method and 
+it's works only for one objects or attributes in the same class
+
+when call up in Terminal:
+Class_name.find(xx).method_name
+
+example: 
+for Specialization class
+def the_average
+    degree
+end
+call up
+Specialization.find(2).the_average
+-------------------------------------------------------------------
+if we convert from instance method to class method
+
+1- choose the class that we have to convert instance method to class method  
+in Model> Class_name.rb such as User.rb or Information.rb or any other class_name 
+2- typing 
+def self.method_name
+    self.method.attribute or/and any other function
+end
+when call up in Terminal:
+Class_name.method_name
+
+example: 
+for Education_history 
+def self.name_of_uni
+    self.second.university
+end
+when call up in Terminal:
+Education_history.name_of_uni
+---------------------------------------------------------------------
+scope
+example
+scope for a degree in a Specializations class
+
+scope :scope_method, -> { where(attributes: data_of_attributes) }
+scope :degree_verygood, -> { where(degree: verygood) }
+
+when call up in Terminal:
+Class_name.scope_method
+Specialization.degree_verygood
+
+---------------------------------------------------------------------
