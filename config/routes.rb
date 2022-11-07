@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :books
   resources :educations
   resources :profiles
   resources :users
-  root to: "educations#index"
+  root to: "users#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
