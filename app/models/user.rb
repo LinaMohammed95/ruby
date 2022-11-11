@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
-    validates :username, length: {minimum: 3}, allow_blank: false
-    validates :name, presence: true, uniqueness: { case_sensitive: false }
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :rememberable, :validatable
     validates :identifier, presence: true, on: create
 
     has_one :profile
@@ -11,6 +12,7 @@ class User < ApplicationRecord
     scope :by_book_year, ->(year) {joins(:books).where(books: {year: year})}
 
 before_validation :generate_id
+
 
 private
 
