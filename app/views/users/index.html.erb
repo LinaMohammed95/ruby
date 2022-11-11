@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<%= link_to "logout", @user, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %>
+<%= link_to "logout", destroy_user_session_path(@user), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %>
 <%= button_to "Sign out", destroy_user_session_path, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
 
 <h1>Users</h1>

@@ -48,6 +48,11 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1 or /users/1.json
+  def del
+    @user.destroy
+    @user = user.find(params[:id])
+    redirect_to users_url, notice: "user was successfully destroyed."
+    end
   def destroy
     @user.destroy
 
