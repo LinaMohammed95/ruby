@@ -4,7 +4,7 @@
 <%= button_to "Sign out", destroy_user_session_path, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
 
 <h1>Users</h1>
-<%= current_user.email %>
+
 <%= user_signed_in? %>
 
 <table class="table">

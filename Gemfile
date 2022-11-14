@@ -73,3 +73,4 @@ group :test do
   gem "webdrivers"
 end
 gem 'devise'
+gem 'faker', '~> 3.0'
