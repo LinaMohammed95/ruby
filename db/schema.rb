@@ -20,12 +20,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_170655) do
   end
 
   create_table "desserts", force: :cascade do |t|
+    t.integer "food_id"
     t.string "variety", null: false
     t.string "topping", null: false
     t.string "flavor", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["flavor"], name: "index_desserts_on_flavor"
+    t.index ["food_id"], name: "index_desserts_on_food_id"
     t.index ["topping"], name: "index_desserts_on_topping"
     t.index ["variety"], name: "index_desserts_on_variety"
   end
@@ -39,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_170655) do
   end
 
   create_table "foods", force: :cascade do |t|
+    t.integer "restaurant_id", null: false
     t.string "description", null: false
     t.string "fruits", null: false
     t.string "ingredient", null: false
@@ -87,4 +90,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_170655) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "desserts", "foods"
 end
