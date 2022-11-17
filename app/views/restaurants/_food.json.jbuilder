@@ -1,4 +1,4 @@
-json.id            food.id
+json.food_id       food.id
 json.description   food.description
 json.fruits        food.fruits
 json.ingredient    food.ingredient
